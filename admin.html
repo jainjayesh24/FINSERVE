@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINSERVE Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <h2>Loan Applications</h2>
+        <table>
+            <caption>List of Loan Applications</caption>
+            <thead> 
+                <tr>
+                    <th>Applicant Name</th>
+                    <th>Loan Amount</th>
+                    <th>Income</th>
+                    <th>Credit Score</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="loan-table">
+                <tr>
+                    <td>Lavanay Sharma</td>
+                    <td>20,0000</td>
+                    <td>50,0000</td>
+                    <td>720</td>
+                    <td class="status">Pending</td>
+                    <td>
+                        <button aria-label="Approve Loan" onclick="approveLoan(this)">Approve</button>
+                        <button aria-label="Decline Loan" onclick="declineLoan(this)">Decline</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function approveLoan(button) {
+            const row = button.closest('tr');
+            row.querySelector('.status').innerText = 'Approved';
+            alert('Loan Approved');
+            
+            button.disabled = true;
+            button.nextElementSibling.disabled = true; 
+        }
+
+        function declineLoan(button) {
+            const row = button.closest('tr');
+            row.querySelector('.status').innerText = 'Declined';
+            alert('Loan Declined');
+          
+            button.disabled = true;
+            button.previousElementSibling.disabled = true; 
+        }
+    </script>
+   
+    <div class="chatbot-icon" onclick="toggleChatbot()">
+        <img src="chat-icon.png" alt="Chatbot Icon">
+    </div>
+   
+    <div id="chatbot-container" class="chatbot-container hidden">
+        <div id="chatbot-header">
+            <h4>Finbot</h4>
+            <button onclick="toggleChatbot()">X</button>
+        </div>
+        <div id="chatbot-messages"></div>
+        <input type="text" id="chatbot-input" placeholder="Ask about loans..." />
+        <button onclick="sendChatMessage()">Send</button>
+    </div>
+
+    <script src="chatbot.js"></script>
+</body>
+</html>

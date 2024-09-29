@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINSERVE Loan Application</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="loan-container">
+        <h2>Apply for a Loan</h2>
+        <form id="loan-form">
+            <input type="text" name="applicantName" placeholder="Full Name" required aria-label="Full Name">
+            <input type="number" name="loanAmount" placeholder="Loan Amount" required aria-label="Loan Amount" min="1">
+            <input type="number" name="income" placeholder="Annual Income" required aria-label="Annual Income" min="1">
+            <input type="number" name="creditScore" placeholder="Credit Score" required aria-label="Credit Score" min="0">
+            <button type="submit">Submit Application</button>
+        </form>
+        <div id="form-status" style="margin-top: 10px; color: green;"></div>
+    </div>
+
+    <script>
+        document.getElementById("loan-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const name = document.querySelector('input[name="applicantName"]').value;
+            const amount = document.querySelector('input[name="loanAmount"]').value;
+            document.getElementById("form-status").innerText = `Thank you, ${name}. Your loan application has been submitted.`;
+            document.getElementById("loan-form").reset();
+        });
+    </script>
+
+    <div class="chatbot-icon" onclick="toggleChatbot()">
+        <img src="chat-icon.png" alt="Chatbot Icon">
+    </div>
+
+    <div id="chatbot-container" class="chatbot-container hidden">
+        <div id="chatbot-header">
+            <h4>Finbot</h4>
+            <button onclick="toggleChatbot()">X</button>
+        </div>
+        <div id="chatbot-messages"></div>
+        <input type="text" id="chatbot-input" placeholder="Ask about loans..." />
+        <button onclick="sendChatMessage()">Send</button>
+    </div>
+
+    <script src="chatbot.js"></script>
+
+</body>
+</html>

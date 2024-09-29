@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINSERVE Microfinance System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="index-container">
+        <h1>Welcome to FINSERVE </h1>
+        <p>Your trusted partner for microfinance services. Apply for loans, track your loan status, and get approved faster.</p>
+
+        <div class="cta-buttons">
+            <a href="login.html" class="button"><i class="fas fa-sign-in-alt"></i> Login</a>
+            <a href="apply-loan.html" class="button"><i class="fas fa-file-signature"></i> Apply for a Loan</a>
+            <a href="admin.html" class="button"><i class="fas fa-user-shield"></i> Admin Dashboard</a>
+        </div>
+
+        <div class="chatbot-icon" onclick="toggleChatbot()">
+            <img src="chat-icon.png" alt="Chatbot Icon">
+        </div>
+
+        <div id="chatbot-container" class="chatbot-container hidden">
+            <div id="chatbot-header">
+                <h4>Finbot</h4>
+                <button onclick="toggleChatbot()">X</button>
+            </div>
+            <div id="chatbot-messages"></div>
+            <input type="text" id="chatbot-input" placeholder="Ask about loans..." />
+            <button onclick="sendChatMessage()">Send</button>
+        </div>
+
+        <script src="chatbot.js"></script>
+
+        <div class="features">
+            <h2>Why Choose FINSERVE?</h2>
+            <ul>
+                <li>Easy and quick loan application process.</li>
+                <li>Secure and transparent loan approvals.</li>
+                <li>Manage your loans online, anytime.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

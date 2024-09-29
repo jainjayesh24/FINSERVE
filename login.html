@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - FINSERVE</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background">
+        <div class="index-container">
+            <h1>Login to FINSERVE</h1>
+            <form id="login-form" action="/submit-login" method="POST">
+                <input type="text" name="username" placeholder="Enter Username" required aria-label="Username">
+                <input type="password" name="password" placeholder="Enter Password" required aria-label="Password">
+                <button type="submit">Login</button>
+                <div id="login-status" style="color: red; margin-top: 10px;"></div>
+            </form>
+        </div>
+
+        <div class="chatbot-icon" onclick="toggleChatbot()">
+            <img src="chat-icon.png" alt="Chatbot Icon">
+        </div>
+
+        <div id="chatbot-container" class="chatbot-container hidden">
+            <div id="chatbot-header">
+                <h4>Finbot</h4>
+                <button onclick="toggleChatbot()">X</button>
+            </div>
+            <div id="chatbot-messages"></div>
+            <input type="text" id="chatbot-input" placeholder="Ask about loans..." />
+            <button onclick="sendChatMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const username = document.querySelector('input[name="username"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+
+            if (username === "admin" && password === "admin123") {
+                window.location.href = "admin.html"; 
+            } else if (username === "user" && password === "user123") {
+                window.location.href = "apply-loan.html";  
+            } else {
+                document.getElementById("login-status").innerText = "Invalid credentials!";
+            }
+        });
+    </script>
+
+    <script src="chatbot.js"></script>
+</body>
+</html>
