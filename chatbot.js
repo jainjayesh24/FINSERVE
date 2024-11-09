@@ -1,8 +1,8 @@
-function toggleChatbot() {
-    let chatbotContainer = document.getElementById('chatbot-container');
-    chatbotContainer.classList.toggle('hidden');
-    chatbotContainer.classList.toggle('visible');
+function redirectToStreamlit() {
+    // Change this URL to the link of your deployed Streamlit app
+    window.location.href = 'http://localhost:8501'; // Replace with your Streamlit app URL
 }
+
 
 function sendChatMessage() {
     let userInput = document.getElementById('chatbot-input').value;

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://jainjayesh24-finserve-appapp-pqmlfb.streamlit.app/" rel="stylesheet">
 </head>
 <body>
     <div class="index-container">
@@ -19,18 +19,18 @@
             <a href="login.html" class="button"><i class="fas fa-sign-in-alt"></i> Login</a>
             <a href="apply-loan.html" class="button"><i class="fas fa-file-signature"></i> Apply for a Loan</a>
             <a href="admin.html" class="button"><i class="fas fa-user-shield"></i> Admin Dashboard</a>
-            <a href="churn_prediction.html" class="button"><i class="fas fa-chart-line"></i> Churn Prediction</a> <!-- New Button -->
+            <a href="https://jainjayesh24-finserve-appapp-pqmlfb.streamlit.app/" class="button"><i class="fas fa-chart-line"></i> Churn Prediction</a> <!-- New Button -->
         </div>
         
-        <div class="chatbot-icon" onclick="toggleChatbot()">
+        <div class="chatbot-icon" onclick="redirectToStreamlit()">
             <img src="chat-icon.png" alt="Chatbot Icon">
         </div>
 
         <div id="chatbot-container" class="chatbot-container hidden">
             <div id="chatbot-header">
                 <h4>Finbot</h4>
-                <button onclick="toggleChatbot()">X</button>
-            </div>
+                <button onclick="redirectToStreamlit()">X</button>
+            </div>  
             <div id="chatbot-messages"></div>
             <input type="text" id="chatbot-input" placeholder="Ask about loans..." />
             <button onclick="sendChatMessage()">Send</button>
